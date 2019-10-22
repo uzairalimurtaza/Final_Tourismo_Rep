@@ -84,12 +84,12 @@ public class ClickPost extends AppCompatActivity {
                 sendUserTodelete();
             }
         });
-        BedRooms_linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendUserToChatActivity();
-            }
-        });
+//        BedRooms_linearLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                sendUserToChatActivity();
+//            }
+//        });
         bathrooms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,21 +97,21 @@ public class ClickPost extends AppCompatActivity {
             }
         });
 
-        location_linear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendownerTochat();
-            }
-        });
+//        location_linear.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                sendownerTochat();
+//            }
+//        });
 
 
 
     }
 
     private void sendUserToContactsActivity() {
-        Intent intent = new Intent(ClickPost.this, Contacts.class);
+        Intent intent = new Intent(ClickPost.this, Chat.class);
+        intent.putExtra("ownerID",ownerID);
         startActivity(intent);
-
     }
 
     private void sendownerTochat() {
@@ -121,14 +121,13 @@ public class ClickPost extends AppCompatActivity {
 
 
     }
-
-    private void sendUserToChatActivity() {
-
-        Intent intent = new Intent(ClickPost.this, Chat.class);
-
-        intent.putExtra("ownerID",ownerID);
-        startActivity(intent);
-    }
+//    private void sendUserToChatActivity() {
+//
+//        Intent intent = new Intent(ClickPost.this, Chat.class);
+//
+//        intent.putExtra("ownerID",ownerID);
+//        startActivity(intent);
+//    }
 
     private void sendUserTodelete() {
         postRef.removeValue();

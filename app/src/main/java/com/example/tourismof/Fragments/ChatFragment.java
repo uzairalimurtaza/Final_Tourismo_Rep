@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tourismof.Chat;
 import com.example.tourismof.Chat_Contacts;
 import com.example.tourismof.ClickPost;
 import com.example.tourismof.R;
@@ -48,9 +49,10 @@ public class ChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View ContactView  = inflater.inflate(R.layout.fragment_chat, container, false);
+        mAuth =FirebaseAuth.getInstance();
         listOfContacts = ContactView.findViewById(R.id.cont_list);
         listOfContacts.setLayoutManager(new LinearLayoutManager(getContext()));
-        ContactsRef = FirebaseDatabase.getInstance().getReference().child("Contacts");
+        ContactsRef = FirebaseDatabase.getInstance().getReference().child("Contacts").child(mAuth.getCurrentUser().getUid());
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
         return ContactView;
     }
@@ -71,8 +73,7 @@ public class ChatFragment extends Fragment {
 
                         final String usersIDs = getRef(position).getKey();
 
-                        UsersRef.child(usersIDs);
-                        UsersRef.addValueEventListener(new ValueEventListener() {
+                        UsersRef.child(usersIDs).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 if (dataSnapshot.hasChild("Profile")) {
@@ -87,17 +88,13 @@ public class ChatFragment extends Fragment {
                                     holder.linearLayout.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
-                                            sendUserTochatActivity();
+                                            Intent intent = new Intent(getActivity(), Chat.class);
+                                            intent.putExtra("ownerID", usersIDs);
+                                            getActivity().startActivity(intent);
                                         }
                                     });
 
                                 }
-                            }
-
-                            private void sendUserTochatActivity() {
-                                Intent intent = new Intent(getActivity(), ClickPost.class);
-                                intent.putExtra("UserID", usersIDs);
-                                getActivity().startActivity(intent);
                             }
 
                             @Override

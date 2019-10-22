@@ -59,7 +59,7 @@ public class Chat extends AppCompatActivity {
         text_message = findViewById(R.id.chat_text_message);
         recyclerView = findViewById(R.id.recycler_view_chat);
         mAuth = FirebaseAuth.getInstance();
-        message_receiverID = getIntent().getExtras().get("UserID_from_contacts").toString();
+        message_receiverID = getIntent().getExtras().get("ownerID").toString();
 
         message_senderID = mAuth.getCurrentUser().getUid();
         rootRef = FirebaseDatabase.getInstance().getReference();
