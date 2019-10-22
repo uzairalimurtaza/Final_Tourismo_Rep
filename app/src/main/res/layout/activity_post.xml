@@ -8,13 +8,37 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/first_linear"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="150dp"
+            android:background="#C03939">
+
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Photos"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginHorizontal="90dp"
+                android:textSize="45sp"
+                android:textColor="#fff"
+                android:textStyle="italic"/>
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/post_image"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginLeft="20dp"
+            android:layout_below="@+id/first_linear"
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="5dp"
@@ -27,16 +51,17 @@
 
         <Button
             android:id="@+id/Add_post_button"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="49dp"
+            android:layout_marginTop="352dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/button"
-            android:text="Add Post"
-            android:textColor="#fff"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/post_image"/>
+            android:text="Next"
+            android:textColor="#fff" />
 
     </RelativeLayout>
 

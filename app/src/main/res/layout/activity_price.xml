@@ -8,30 +8,44 @@
 
 
     <RelativeLayout
+        android:id="@+id/first_relative"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/Price_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enter Price"
-            android:layout_centerHorizontal="true"
-            android:textSize="60sp"
-            android:textColor="#C03939"
-            android:textStyle="italic"/>
+
+        <LinearLayout
+            android:id="@+id/first_linear"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:background="#C03939">
+
+
+            <TextView
+                android:id="@+id/Price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter Price"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:textSize="45sp"
+                android:textColor="#fff"
+                android:textStyle="italic" />
+
+        </LinearLayout>
 
         <EditText
             android:id="@+id/post_price"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="45dp"
-            android:layout_below="@+id/Price_text"
+            android:layout_below="@+id/first_linear"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="50dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="15dp"
             android:backgroundTint="#C03939"
             android:drawablePadding="5dp"
+            android:layout_centerHorizontal="true"
             android:ems="10"
             android:foregroundTint="#fff"
             android:hint="Add Price "
@@ -39,18 +53,22 @@
             android:textColor="#000000"
             android:textColorHint="#9A8585" />
 
+
+
         <Button
             android:id="@+id/price_button"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="49dp"
+            android:layout_marginTop="352dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/button"
             android:text="Next"
-            android:textColor="#fff"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/post_price"/>
+            android:textColor="#fff" />
+
 
     </RelativeLayout>
 

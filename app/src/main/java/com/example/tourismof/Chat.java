@@ -70,12 +70,6 @@ public class Chat extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(messagesAdapter);
-
-        Toast.makeText(Chat.this, postKey, Toast.LENGTH_SHORT).show();
-        Toast.makeText(Chat.this, message_receiverID, Toast.LENGTH_SHORT).show();
-
-
-
         send_message_button.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override

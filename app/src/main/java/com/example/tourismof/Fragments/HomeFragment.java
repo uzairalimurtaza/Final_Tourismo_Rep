@@ -184,7 +184,6 @@ public class HomeFragment extends Fragment {
                                     @Override
                                     public void onClick(View view) {
                                         Intent intent = new Intent(getActivity(), ClickPost.class);
-                                        Toast.makeText(getContext(), "Please Enter Email", Toast.LENGTH_SHORT).show();
 
                                         intent.putExtra("postKey", Userids);
                                         intent.putExtra("ownerID",dataSnapshot.child("uid").getValue().toString());

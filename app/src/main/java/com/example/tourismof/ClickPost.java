@@ -3,6 +3,7 @@ package com.example.tourismof;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class ClickPost extends AppCompatActivity {
     private DatabaseReference postRef;
     private String newString = "New String";
     private LinearLayout linearLayout,BedRooms_linearLayout, location_linear, bathrooms;
+    private ImageButton chat_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +44,12 @@ public class ClickPost extends AppCompatActivity {
         BedRooms_linearLayout = findViewById(R.id.bedRooms_linear_layout);
         location_linear = findViewById(R.id.location_linera_layout);
         bathrooms = findViewById(R.id.bathrooms_layout_click);
+        chat_button = findViewById(R.id.chat_with_owner_icon);
 
 
 
         postKey = getIntent().getExtras().get("postKey").toString();
         ownerID = getIntent().getExtras().get("ownerID").toString();
-
-        Toast.makeText(this, postKey, Toast.LENGTH_SHORT).show();
 
 
 
@@ -84,28 +85,12 @@ public class ClickPost extends AppCompatActivity {
                 sendUserTodelete();
             }
         });
-//        BedRooms_linearLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                sendUserToChatActivity();
-//            }
-//        });
-        bathrooms.setOnClickListener(new View.OnClickListener() {
+        chat_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendUserToContactsActivity();
             }
         });
-
-//        location_linear.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                sendownerTochat();
-//            }
-//        });
-
-
-
     }
 
     private void sendUserToContactsActivity() {
@@ -121,13 +106,6 @@ public class ClickPost extends AppCompatActivity {
 
 
     }
-//    private void sendUserToChatActivity() {
-//
-//        Intent intent = new Intent(ClickPost.this, Chat.class);
-//
-//        intent.putExtra("ownerID",ownerID);
-//        startActivity(intent);
-//    }
 
     private void sendUserTodelete() {
         postRef.removeValue();

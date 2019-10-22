@@ -50,7 +50,7 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginRight="35dp"
                 android:layout_below="@+id/header_cover_image"
-                android:background="#0077b5"
+                android:background="#C03939"
                 android:elevation="4dp"
                 android:paddingBottom="24dp">
 
